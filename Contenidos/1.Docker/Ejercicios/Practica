@@ -1,0 +1,39 @@
+- Ejecutar comandos de Docker
+- DockerFile
+- Crear un Volumen
+
+Ejecutar base de datos:
+
+docker volume create mysql
+docker volume create mysql_config
+
+docker network create mysqlnet
+
+docker run --rm -d -v mysql:/var/lib/mysql   -v mysql_config:/etc/mysql -p 3306:3306  --network mysqlnet   --name mysqldb   -e MYSQL_ROOT_PASSWORD=p@ssw0rd1   mysql
+
+# Crear una application
+1. Instalar Python3
+2. Docker and IDE
+3. Build App1 (installar Flask)
+
+#Application 2:
+pip3 install mysql-connector-python
+Build
+docker run --rm -d --network mysqlnet --name rio-1 -p 5001:5000  rio
+docker run --rm -d --network mysqlnet --name rio-2 -p 5002:5000  rio
+
+docker run --rm -d --network mysqlnet --name minginx -p 8000:80 minginx
+
+Exec:
+docker exec -it (id) /bin/bash
+
+test:
+curl http://localhost:5001/initdb
+ curl http://localhost:5002/widgets
+
+Hacer:
+
+1. Inspeccionar todo (contenedores, reds, etc)
+2. Ejecutar tests
+3. Cambiar codigo y repetir el proceso
+4. Hacer lo mismo en Podman

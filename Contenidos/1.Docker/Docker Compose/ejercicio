@@ -1,0 +1,6 @@
+1. Arreglar requirements
+2. Usar pythopn bullseye
+3. Crear las imagenes, tag: 1.0.1
+4. Editar docker compose para usar ultima version 1.0.1
+
+

@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv1
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  storageClassName: hostpath
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+     #path: "/mnt/wsl/data"
+    path: "/run/desktop/mnt/host/wsl/data/" 
+    #path: "/var/lib/docker/volumes/test/_data"
+    #path: "/mnt/wsl/data"
+    #path: "/run/desktop/mnt/host/wsl/data/" -> funciona pero no veo el host
+    path: "/var/lib/docker/volumes/test/_data"
+--- 
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc1
+spec:
+  storageClassName: hostpath
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi

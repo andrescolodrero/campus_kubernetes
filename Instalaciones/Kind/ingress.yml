@@ -1,0 +1,41 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  kubeadmConfigPatches:
+      - |
+        kind: InitConfiguration
+        nodeRegistration:
+          kubeletExtraArgs:
+            node-labels: "ingress-ready=true"
+        ---
+        apiVersion: kubeadm.k8s.io/v1beta2
+        kind: ClusterConfiguration
+        metadata:
+          name: config
+        apiServer:
+          extraArgs:
+            "runtime-config": "metrics.k8s.io/v1beta1=true"
+  extraMounts:
+  - hostPath: /mnt/wsl/data
+    containerPath: /files
+  extraPortMappings:
+  - containerPort: 80
+    hostPort: 80
+    protocol: TCP
+  - containerPort: 443
+    hostPort: 443
+    protocol: TCP
+  - containerPort: 30350 # for nodePort
+    hostPort: 30350
+    protocol: TCP
+  - containerPort: 30351 # for nodePort
+    hostPort: 30351
+    protocol: TCP
+- role: worker
+- role: worker
+- role: worker
+#kind: InitConfiguration
+#    nodeRegistration:
+#      kubeletExtraArgs:
+#        node-labels: "ingress-ready=true"

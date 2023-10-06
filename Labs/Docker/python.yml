@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: flask-app-pod
+spec:
+  containers:
+  - name: flask-app-container
+    image: andrescolodrero/pythonapp:1.0.0
+    ports:
+    - containerPort: 5000
+    livenessProbe:
+      httpGet:
+        path: /healthz  # Ruta que devuelve un código de estado 200 si la aplicación
+        port: 5000
+      initialDelaySeconds: 5  # Retardo inicial antes de que comience a verificar
+      periodSeconds: 10       # Intervalo entre verificaciones periódicas

@@ -1,0 +1,18 @@
+version: '3'
+services:
+  web:
+    image: frontend:1.0.1
+    ports:
+      - "8082:5000"
+    networks:
+      - my-network
+
+  backend-service:
+    image: backend:1.0.1
+    ports:
+    - "5000:5000"
+    networks:
+      - my-network
+
+networks:
+  my-network:

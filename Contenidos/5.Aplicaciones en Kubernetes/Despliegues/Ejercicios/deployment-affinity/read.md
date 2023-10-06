@@ -1,0 +1,1 @@
+podAntiAffinity: asegurar scheduler no coloca replicas en el mismo nodo

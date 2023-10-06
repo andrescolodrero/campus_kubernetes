@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-liveness-with-startup-probe
+  labels:
+    app: readiness-liveness-with-startup-probe
+    
+spec:
+  selector:
+    matchLabels:
+      app: readiness-liveness-with-startup-probe
+  template:
+    metadata:
+      labels:
+        app: readiness-liveness-with-startup-probe
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        # imagePullPolicy: IfNotPresent
+
+        ports:
+        - name: http 
+          containerPort: 80
+
+        resources:
+          limits:
+            cpu: 10m
+            memory: 20Mi
+          requests:
+            cpu: 5m
+            memory: 20Mi
+
+
+        startupProbe:
+          httpGet:
+            path: /startupcheck.txt
+            port: 80
+          periodSeconds: 30
+          failureThreshold: 12
+          timeoutSeconds: 1
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: readiness-liveness-with-startup-probe
+  labels:
+    app: readiness-liveness-with-startup-probe
+spec:
+  ports:
+    - port: 80
+  selector:
+    app: readiness-liveness-with-startup-probe
+  type: ClusterIP 

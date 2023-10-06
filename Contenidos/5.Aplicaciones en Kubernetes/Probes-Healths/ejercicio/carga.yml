@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: siege
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: siege
+  template:
+    metadata:
+      labels:
+        app: siege
+    spec:
+      containers:
+      - name: siege
+        image: dockersec/siege
+        command: ["siege", "-c", "40", "-t", "1M", "http://nodejs-service:3000/"]

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-using-pvc
+spec:
+  containers:
+  - name: my-container
+    image: nginx
+    volumeMounts:
+    - name: my-volume
+      mountPath: /mnt/
+  volumes:
+  - name: my-volume
+    persistentVolumeClaim:
+      claimName: pvc1

@@ -1,0 +1,41 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: fake-service
+  labels:
+    app: fake-service
+  annotations:
+    kubernetes.io/change-cause: "Cambio pod name hjkhjkhjkh"
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: fake-service
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: fake-service 
+    spec:
+      containers:
+      - image: nicholasjackson/fake-service:vm-v0.26.0
+        name: fake-service
+        ports:
+        - containerPort: 9090
+          name: fake-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fake-service-svc
+spec:
+  selector:
+    app: fake-service
+  ports:
+    - port: 9090
+      targetPort: 9090
+  type: ClusterIP
+
+        
+     
