@@ -1,13 +1,19 @@
 # Kubernetes
 
 ALgunos comandos:
+# Ver config View
+kubectl config view # 
+# Cambiar de Namespace
 kubectl config set-context --current --namespace=<nombre-namespace>
 
+# Trabajar con Pods
 kubectl get pods -o yaml // -o json
 kubectl get pods -o wide
 
 kubectl get pods -o jsonpath='{.items[*].metadata.name}'
-
+kubectl delete pod
+## Ver logs
+kubectl logs
 
 ## Ejercicios
 

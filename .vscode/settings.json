@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "kubernetes://schema/v1@namespace": "file:///c%3A/campus-k8s/campus_kubernetes/Contenidos/2.Introduccion%20a%20Kubernetes/namespace.yml"
+    }
+}

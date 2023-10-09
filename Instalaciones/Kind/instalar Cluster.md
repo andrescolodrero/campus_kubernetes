@@ -1,0 +1,1 @@
+kind create cluster --name multi-node --config .\single.yml

@@ -8,6 +8,8 @@
 chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
 '''
+# Con Chocolatey
+choco install  kind
 
 # Install Kind en Windows
 curl.exe -Lo kind-windows-amd64.exe https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64

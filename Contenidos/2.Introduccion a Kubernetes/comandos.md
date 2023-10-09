@@ -16,10 +16,12 @@ echo "source <(kubectl completion zsh)" >> ~/.zshrc
 
 # Usar dos archivos de configuración kubeconfig llamados 'config' y 'kubeconfig2' al mismo tiempo
 export KUBECONFIG=kubeconfig1:kubeconfig2:kubeconfig3:kubeconfig4
+##################################################################################################################
+
 
 # Aplanar kubeconfig y guardarlo en el directorio ~/.kube como un archivo llamado config
-kubectl config view --flatten > ~/.kube/config
-
+kubectl config view --flatten > ~/.kube/config_copy # CUIDADO!!! :)
+ 
 # Listar la configuración de kubeconfig
 kubectl config view
 
@@ -42,10 +44,10 @@ kubectl api-resources --namespaced=true
 kubectl api-resources --namespaced=false
 
 # Obtener las métricas en bruto de los nodos
-kubectl get --raw /apis/metrics.k8s.io/v1beta1/nodes
+#kubectl get --raw /apis/metrics.k8s.io/v1beta1/nodes
 
 # Obtener las métricas en bruto de los pods
-kubectl get --raw /apis/metrics.k8s.io/v1beta1/pods
+#kubectl get --raw /apis/metrics.k8s.io/v1beta1/pods
 
 # Listar todos los eventos en el espacio de nombres predeterminado
 kubectl get events
