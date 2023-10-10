@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: appconfig
+data:
+  database.properties: |
+     db.user=sa 
+     db.password=ghjhgjhg
+     db.schema=xxxx
+  web.properties: |
+     web.user=xxxx
+     web.service=algo
+
+

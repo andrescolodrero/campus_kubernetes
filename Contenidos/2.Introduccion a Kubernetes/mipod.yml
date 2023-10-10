@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
+  namespace: andres
   name: mipod
   labels:
     name: mmi-label
@@ -14,3 +15,5 @@ spec:
         cpu: "500m"
     ports:
       - containerPort: 80
+
+
