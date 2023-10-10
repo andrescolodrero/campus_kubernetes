@@ -10,7 +10,6 @@ def index():
         # Fetch data from the backend API
         response = requests.get('http://backend-service:5000/api/hello')
         
-        # Check if the response status code is 200 (OK)
         if response.status_code == 200:
             # Try to parse the JSON response
             backend_response = response.json()
@@ -23,6 +22,14 @@ def index():
         message = f"An error occurred: {str(e)}"
     
     return render_template('index.html', message=message)
+
+@app.route('/foo')
+def foo():
+    return 'Hola, esto es foo'
+
+@app.route('/bar')
+def bar():
+    return 'Hola, esto es bar'
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)

@@ -39,6 +39,12 @@ kubectl get pods -l app=<nombre-replicaset>
 # Eliminar un ReplicaSet
 kubectl delete replicaset <nombre-replicaset>
 
+<<<<<<< HEAD
+=======
+# KLOgs de un deployment
+kubectl logs deployment/nginx-deployment
+kubectl events
+>>>>>>> b0c4c5883dceadee2059c0e03527e40f1fa44edb
 # Forzar una actualización del ReplicaSet (recrea Pods)
 kubectl rollout restart replicaset/<nombre-replicaset>
 
@@ -47,7 +53,11 @@ kubectl rollout restart replicaset/<nombre-replicaset>
 # Crear un StatefulSet
 kubectl create statefulset <nombre-statefulset> --image=<imagen> --replicas=<número-replicas>
 
+<<<<<<< HEAD
 # Ver los StatefulSets
+=======
+# Ver los StatefulSetsuio0u
+>>>>>>> b0c4c5883dceadee2059c0e03527e40f1fa44edb
 kubectl get statefulset
 
 # Ver detalles de un StatefulSet
