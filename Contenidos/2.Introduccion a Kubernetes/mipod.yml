@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: micontendor
-    image: nginx
+    image: quay.io/redhattraining/php-webapp
     resources:
       limits:
         memory: "128Mi"

@@ -1,0 +1,15 @@
+kind: Pod 
+apiVersion: v1 
+metadata:
+  name: pyapp
+spec:
+  containers:
+    - name: pyapp
+      image: andrescolodrero/pythonapp:1.0.0
+      volumeMounts:
+      - name: config-vol
+        mountPath: /config
+  volumes:
+  - name: config-vol
+    configMap:
+      name: appconfig

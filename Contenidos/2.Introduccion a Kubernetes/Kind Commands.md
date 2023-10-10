@@ -1,11 +1,12 @@
 # Para Installar
-https://kind.sigs.k8s.io/
+ver Instalaciones/Kind
+
 
 # Crear un cluster desde fichero
-kind create cluster --config kind.yml
+kind create cluster --name <nombre> --config kind.yml
 
 # Estado del cluster
-kind get cluster
+kind get clusters
 
 
 
