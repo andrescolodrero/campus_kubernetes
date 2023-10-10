@@ -19,5 +19,11 @@ spec:
           - name: CONTAINER_NAME
             value: "hello"
         image: andrescolodrero/rio
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
         ports:
         - containerPort: 80
+
+
