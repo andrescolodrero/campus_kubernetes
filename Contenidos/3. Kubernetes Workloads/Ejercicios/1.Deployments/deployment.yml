@@ -5,6 +5,7 @@ metadata:
   labels:
     app: nginx
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: nginx
@@ -18,7 +19,7 @@ spec:
         env: 
           - name: CONTAINER_NAME
             value: "hello"
-        image: andrescolodrero/rio
+        image: mcr.microsoft.com/dotnet/samples:aspnetapp 
         resources:
           limits:
             memory: "128Mi"
