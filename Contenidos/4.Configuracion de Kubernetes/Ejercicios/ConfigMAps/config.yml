@@ -4,4 +4,9 @@ metadata:
   name: appconfig 
 data:
   config.cfg: | 
-    MSG="Esto lo cambio desde Kubernetes. Version 2"
+    MSG="Esto lo cambio desde Kubernetes. Version 3" 
+  fichero.cfg: |
+    <xml>
+      <text>gjhgjhg</text>
+    </xml>
+    
