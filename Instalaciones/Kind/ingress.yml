@@ -35,7 +35,3 @@ nodes:
 - role: worker
 - role: worker
 - role: worker
-#kind: InitConfiguration
-#    nodeRegistration:
-#      kubeletExtraArgs:
-#        node-labels: "ingress-ready=true"

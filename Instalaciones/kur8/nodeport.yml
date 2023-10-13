@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mi-servicio-nodeport
+spec:
+  selector:
+    app: kur8
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 30350
+  type: NodePort
+  

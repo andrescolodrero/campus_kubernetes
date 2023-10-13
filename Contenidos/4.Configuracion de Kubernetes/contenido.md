@@ -33,8 +33,11 @@ kubectl label <tipo_de_recurso> <nombre_del_recurso> <clave>-
 
 ## 4. Gestionar Kubernetes Annotations
 kubectl annotate pod mi-pod mi-anotacion-1=valor-1 
-kubectl get pod mi-pod -o json | jq '.metadata.annotations' 
+#kubectl get pod mi-pod -o json | jq '.metadata.annotations'  -> solo en LINUX
 kubectl annotate pod mi-pod mi-anotacion-1=nuevo_valor --overwrite 
 kubectl annotate pod mi-pod mi-anotacion-1- && 
-kubectl get pod mi-pod -o json | jq '.metadata.annotations'
+kubectl get pod mi-pod  -o=jsonpath='{.metadata.annotations}'
 
+# LIstar contenedores de entorno=dev
+
+kubectl get pods -l "team in (A,database)"

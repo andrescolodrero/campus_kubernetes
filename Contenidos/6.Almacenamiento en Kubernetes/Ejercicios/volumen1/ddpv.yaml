@@ -11,12 +11,12 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-     #path: "/mnt/wsl/data"
-    path: "/run/desktop/mnt/host/wsl/data/" 
+    path: "c:/temp"
+    #path: "/run/desktop/mnt/host/wsl/data/" 
     #path: "/var/lib/docker/volumes/test/_data"
     #path: "/mnt/wsl/data"
     #path: "/run/desktop/mnt/host/wsl/data/" -> funciona pero no veo el host
-    path: "/var/lib/docker/volumes/test/_data"
+    #path: "/var/lib/docker/volumes/test/_data"
 --- 
 apiVersion: v1
 kind: PersistentVolumeClaim
