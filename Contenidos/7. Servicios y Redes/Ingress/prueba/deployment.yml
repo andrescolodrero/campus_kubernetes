@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pythond
+  labels:
+    app: python-ingress
+spec:
+  selector:
+    matchLabels:
+      app: python-ingress
+  template:
+    metadata:
+      labels:
+        app: python-ingress
+    spec:
+      containers:
+      - name: python 
+        image: andrescolodrero/python-ingress
+        ports:
+        - containerPort: 5000
